@@ -12,11 +12,11 @@ data = data.rename(columns={10: 'K', 12: 'M', 13: 'N'})
 data.boxplot(column=['K', 'M', 'N'])
 
 # Add a title to the plot
-plt.title("Box Plot of Columns K, M, and N in Housing Data")
+plt.title("Boston Housing Data")
 
 # Add labels to the x and y axis
 plt.xlabel("Column")
-plt.ylabel("Value")
+plt.ylabel("Values")
 
 # Display the plot
 plt.show()

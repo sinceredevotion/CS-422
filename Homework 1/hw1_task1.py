@@ -17,13 +17,11 @@ pca = PCA(n_components=2) # create an instance of PCA with 2 components
 pca.fit(X) # fit the PCA model to the feature set
 PCAX = pca.transform(X) # transform the feature set to the PCA components
 
-# Create a color map for each digit
-colors = ['blue', 'red', 'green', 'cyan', 'magenta', 'yellow', 'black', 'purple', 'pink', 'orange']
 
 # Visualize the transformed data with different colors for each group
 for i in range(10):
     group = PCAX[i*100:(i+1)*100, :]
-    plt.scatter(group[:, 0], group[:, 1], c=colors[i], label='Group {}'.format(i))
+    plt.scatter(group[:, 0], group[:, 1], label='Group {}'.format(i))
 
 # Add labels and title
 plt.xlabel('PCA Component 1')
