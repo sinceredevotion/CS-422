@@ -38,13 +38,14 @@ for o in range(len(TestX_norm)):
 
     # loop over each training sample to compute distance/similarity
     for i in range(len(TrainX_norm)):
+        # calculate the cosine similarity between two samples
         distances.append(cosineSimilarity(TestX_norm[o], TrainX_norm[i]))
 
     # find the k nearest neighbors
     nearest_indices = np.argsort(distances)[-k:]
     nearest_labels = TrainY[nearest_indices]
 
-    # decide the majority class
+    # decide the majority class among the k nearest neighbors
     prediction = np.bincount(nearest_labels).argmax()
     predictions.append(prediction)
 
@@ -59,6 +60,7 @@ for i in range(len(TestY)):
 
 accuracy = correct / len(TestY)
 
+# print the accuracy and the number of correct and incorrect predictions
 print("The amount of correct predictions is: ", correct)
 print("The amount of incorrect predictions is: ", incorrect)
 print("The accuracy is: ", accuracy)
