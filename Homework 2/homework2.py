@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
 
 # load training data
 train_data = pd.read_csv('MNIST_training.csv')
@@ -10,12 +9,12 @@ train_data = pd.read_csv('MNIST_training.csv')
 test_data = pd.read_csv('MNIST_test.csv')
 
 # separate features (X) and labels (Y) for training data
-TrainY = train_data.iloc[:, 0]
-TrainX = train_data.iloc[:, 1:]
+TrainY = train_data.iloc[:, 0].values
+TrainX = train_data.iloc[:, 1:].values
 
 # separate features (X) and labels (Y) for test data
-TestY = test_data.iloc[:, 0]
-TestX = test_data.iloc[:, 1:]
+TestY = test_data.iloc[:, 0].values
+TestX = test_data.iloc[:, 1:].values
 
 # Normalize the training and test data using Z-score normalization
 scaler = StandardScaler()
@@ -27,7 +26,7 @@ def cosineSimilarity(x1, x2):
     return np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
 
 # set the value of k
-k = 20
+k = 15
 
 # initialize empty list for predictions
 predictions = []
