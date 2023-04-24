@@ -1,0 +1,13 @@
+pandas
+Cython
+convertdate
+lunarcalendar
+holidays
+numpy
+matplotlib
+scikit-learn
+pmdarima
+tensorflow
+pystan
+plotly
+prophet
