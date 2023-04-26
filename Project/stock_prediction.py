@@ -129,7 +129,10 @@ def main():
     path = 'Project/archive/Data/Stocks'
     data = load_data(path)
     data = preprocess_data(data)
-    train, test = train_test_split(data, ratio=0.8)
+
+    # Filter Apple stock data
+    apple_stock_data = data[data['file_name'] == 'aapl.us.txt']
+    train, test = train_test_split(apple_stock_data, ratio=0.8)
 
     # Use only 'Close' prices for ARIMA model
     arima_train = train['Close']
@@ -161,7 +164,7 @@ def main():
     print("Prophet metrics (MSE, MAE, R2):", prophet_metrics)
 
     # Visualize Results
-    visualize_results(test, arima_pred, lstm_pred, prophet_pred)
+    visualize_results(test['Close'], arima_pred, lstm_pred, prophet_pred)
 
 if __name__ == '__main__':
     main()
